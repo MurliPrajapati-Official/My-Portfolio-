@@ -92,6 +92,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onContactClick }) => {
             <img
               id="hero-portrait-img"
               src="/hero.png"
+              onError={(e) => {
+                const target = e.currentTarget;
+                if (!target.src.endsWith('/assets/hero.png')) {
+                  target.src = '/assets/hero.png';
+                }
+              }}
               alt="Jayish Choudhary - Full-Stack Developer"
               loading="eager"
               className="w-[280px] sm:w-[350px] md:w-[420px] lg:w-[480px] h-auto max-h-[80vh] object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.85)] pointer-events-none select-none"
